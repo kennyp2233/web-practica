@@ -43,52 +43,56 @@
 
 
         .nav-bar {
-            display: inline-block;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 70px;
             background-color: var(--color-1);
             width: 100%;
-
-
         }
 
         .nav-bar ul {
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            list-style: none;
             margin-left: 70px;
-            line-height: 70px;
-            vertical-align: middle;
-        }
 
-        .nav-bar li {
-            display: inline-block;
         }
 
         .nav-bar li a {
-            display: inline-block;
             text-decoration: none;
             color: black;
             margin: 0 10px;
         }
 
-        #seleccionar-idioma {
-            display: inline-block;
+        #contenedor-cuenta {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-right: 20px;
+
         }
 
-        #contenedor-cuenta {
-            display: inline-block;
-            margin-right: 20px;
+        #idioma-seleccionado {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
 
         #contenedor-derecha {
-            display: inline-block;
-            float: right;
-            vertical-align: middle;
-            line-height: 70px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         #contenedor-derecha p,
         img {
-            display: inline-block;
-            vertical-align: middle;
             margin: 0 5px;
 
         }
@@ -97,7 +101,7 @@
             background-image: url(./images/main.png);
             height: 600px;
             background-size: cover;
-            padding: 150px;
+            padding: 150px 0 0 150px;
         }
 
         #info-seccion {
@@ -111,29 +115,27 @@
             margin: 15px;
         }
 
-        #info-seccion h2 {}
-
-        #reserva>* {
-            display: inline-block;
-        }
 
         #reserva {
-            height: 100px;
-            vertical-align: middle;
-            /*centrar horizontalmente los elementos al centro*/
-            text-align: center;
+            min-height: 100px;
             background-color: var(--color-4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        #reserva p {
-            height: 100%;
-            vertical-align: middle;
-            line-height: 100px;
-
+        #reserva-cita,
+        #codigo-promocional {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0 10px;
         }
 
         #reserva input {
-            height: 50%;
+            height: 50px;
             width: 200px;
             border: none;
             border-radius: 15px;
@@ -146,13 +148,13 @@
         }
 
         #contenedor-tarjetas {
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             padding: 100px 0;
-
         }
 
         #contenedor-tarjetas .tarjeta {
-            display: inline-block;
             width: 350px;
             margin: 0 34px 34px 34px;
         }
@@ -161,7 +163,6 @@
             background-color: var(--color-1);
             border-radius: 15px 15px 0 0;
             text-align: center;
-            line-height: 50px;
             padding: 15px;
         }
 
@@ -209,6 +210,10 @@
         }
 
         #planes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
             background-color: var(--color-4);
             text-align: center;
             padding: 25px 0;
@@ -217,15 +222,13 @@
 
         #planes h2 {
             margin-bottom: 50px;
-            display: block;
+            width: 100%;
         }
 
         #planes .tarjeta-plan {
-            display: inline-block;
             width: 250px;
             margin: 0 34px 34px 34px;
             text-align: center;
-            vertical-align: top;
         }
 
         #planes .tarjeta-plan .contenedor-imagen {
@@ -251,25 +254,27 @@
             padding: 15px;
         }
 
-        .pie-de-pagina>* {
-            display: inline-block;
-        }
 
         .pie-de-pagina {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
             background-color: var(--color-2);
             text-align: center;
-            height: 97px;
+            min-height: 97px;
         }
 
         .pie-de-pagina ul {
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
             margin-left: 70px;
-            float: left;
-            line-height: 97px;
+            list-style: none;
         }
 
         .pie-de-pagina ul li {
-            display: inline-block;
             margin: 0 10px;
         }
 
@@ -279,15 +284,14 @@
         }
 
         .pie-de-pagina .redes {
-            display: inline-block;
-            float: right;
-            line-height: 97px;
-
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .pie-de-pagina .redes p {
             color: #FFF;
-            display: inline-block;
             margin: 0 10px;
         }
 
@@ -331,11 +335,15 @@
             </div>
         </section>
         <section id="reserva">
-            <p>RESERVA TU CITA:</p>
-            <input id="input-cita" type="text">
+            <div id="reserva-cita">
+                <p>RESERVA TU CITA:</p>
+                <input id="input-cita" type="text">
+            </div>
+            <div id="codigo-promocional">
+                <p>CÓDIGO PROMOCIONAL:</p>
+                <input id="input-promo" type="text" placeholder="CODIGO">
+            </div>
 
-            <p>CÓDIGO PROMOCIONAL</p>
-            <input id="input-promo" type="text" placeholder="CODIGO">
         </section>
         <section id="contenedor-tarjetas">
             <div class="tarjeta">
