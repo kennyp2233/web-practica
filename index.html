@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA</title>
+    <style>
+        * {
+            --color-1: #A3A656;
+            --color-2: #384001;
+            --color-3: #FFEFDF;
+            --color-4: #F2F6F6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter';
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: url(./fonts/Inter-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: 'Romanseco';
+            src: url(./fonts/Romanesco-Regular.ttf);
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+
+        .nav-bar {
+            display: inline-block;
+            background-color: var(--color-1);
+            width: 100%;
+
+
+        }
+
+        .nav-bar ul {
+            display: inline-block;
+            margin-left: 70px;
+            line-height: 70px;
+            vertical-align: middle;
+        }
+
+        .nav-bar li {
+            display: inline-block;
+        }
+
+        .nav-bar li a {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+        }
+
+        #seleccionar-idioma {
+            display: inline-block;
+        }
+
+        #contenedor-cuenta {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+
+        #contenedor-derecha {
+            display: inline-block;
+            float: right;
+            vertical-align: middle;
+            line-height: 70px;
+        }
+
+        #contenedor-derecha p,
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 5px;
+
+        }
+
+        #seccion-1 {
+            background-image: url(./images/main.png);
+            height: 600px;
+            background-size: cover;
+            padding: 150px;
+        }
+
+        #info-seccion {
+            width: 55%;
+        }
+
+        #info-seccion h1 {
+            font-family: 'Romanseco';
+            font-size: 96px;
+            font-weight: 400;
+            margin: 15px;
+        }
+
+        #info-seccion h2 {}
+
+        #reserva>* {
+            display: inline-block;
+        }
+
+        #reserva {
+            height: 100px;
+            vertical-align: middle;
+            /*centrar horizontalmente los elementos al centro*/
+            text-align: center;
+            background-color: var(--color-4);
+        }
+
+        #reserva p {
+            height: 100%;
+            vertical-align: middle;
+            line-height: 100px;
+
+        }
+
+        #reserva input {
+            height: 50%;
+            width: 200px;
+            border: none;
+            border-radius: 15px;
+            margin: 0 10px;
+            padding: 0 10px;
+        }
+
+        #input-cita {
+            width: 250px !important;
+        }
+
+        #contenedor-tarjetas {
+            text-align: center;
+            padding: 100px 0;
+
+        }
+
+        #contenedor-tarjetas .tarjeta {
+            display: inline-block;
+            width: 350px;
+            margin: 0 34px 34px 34px;
+        }
+
+        #contenedor-tarjetas .tarjeta header {
+            background-color: var(--color-1);
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+            line-height: 50px;
+            padding: 15px;
+        }
+
+        #contenedor-tarjetas .tarjeta header h2 {
+            color: #FFF;
+        }
+
+        #contenedor-tarjetas .tarjeta img {
+            width: 100%;
+            margin: 0;
+        }
+
+        #contenedor-tarjetas .tarjeta .descripcion-tarjeta {
+            padding: 0px;
+        }
+
+        #contenedor-tarjetas .tarjeta .descripcion-tarjeta p {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        #contenedor-tarjetas .tarjeta .contenedor-inferior {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            background-color: var(--color-1);
+            border: none;
+            border-radius: 35px;
+            padding: 10px 25px;
+            color: #FFF;
+            font-weight: 600;
+            transition: background-color 0.5s ease;
+        }
+
+        button:hover {
+            background-color: var(--color-2);
+
+        }
+
+        #contenedor-tarjetas .tarjeta .contenedor-inferior h2 {
+            margin: 0 10px;
+        }
+
+        #planes {
+            background-color: var(--color-4);
+            text-align: center;
+            padding: 25px 0;
+
+        }
+
+        #planes h2 {
+            margin-bottom: 50px;
+            display: block;
+        }
+
+        #planes .tarjeta-plan {
+            display: inline-block;
+            width: 250px;
+            margin: 0 34px 34px 34px;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        #planes .tarjeta-plan .contenedor-imagen {
+            background-color: #FFF;
+            width: 233px;
+            height: 233px;
+            border-radius: 50%;
+            margin: auto;
+            border: 10px solid var(--color-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #planes .tarjeta-plan ul {
+            text-align: left;
+            width: 50%;
+            margin: 25px auto;
+        }
+
+        #planes button {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .pie-de-pagina>* {
+            display: inline-block;
+        }
+
+        .pie-de-pagina {
+            background-color: var(--color-2);
+            text-align: center;
+            height: 97px;
+        }
+
+        .pie-de-pagina ul {
+            display: inline-block;
+            margin-left: 70px;
+            float: left;
+            line-height: 97px;
+        }
+
+        .pie-de-pagina ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .pie-de-pagina ul li a {
+            color: #FFF;
+            text-decoration: none;
+        }
+
+        .pie-de-pagina .redes {
+            display: inline-block;
+            float: right;
+            line-height: 97px;
+
+        }
+
+        .pie-de-pagina .redes p {
+            color: #FFF;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .pie-de-pagina .redes img {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="encabezado">
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="">PROMOCIONES</a></li>
+                <li><a href="">FOTO</a></li>
+                <li><a href="">SERVICIOS</a></li>
+                <li><a href="">MAPA</a></li>
+                <li><a href="">CONTACTO</a></li>
+            </ul>
+            <div id="contenedor-derecha">
+                <div id="contenedor-cuenta">
+                    <img id="user-icon" src="./images/user.png" alt="user">
+                    <p>Mi cuenta</p>
+                </div>
+                <div id="seleccionar-idioma">
+                    <div id="idioma-seleccionado">
+                        <p>ES</p>
+                        <img id="flag-icon" src="./images/flag.png" alt="flag">
+                        <img id="arrow-icon" src="./images/arrow.png" alt="arrow">
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="seccion-1">
+            <div id="info-seccion">
+                <h1>SPA - Jodos</h1>
+                <h2>Regalate un momento de paz y consiente a tu piel en el mejor lugar</h2>
+            </div>
+        </section>
+        <section id="reserva">
+            <p>RESERVA TU CITA:</p>
+            <input id="input-cita" type="text">
+
+            <p>CÓDIGO PROMOCIONAL</p>
+            <input id="input-promo" type="text" placeholder="CODIGO">
+        </section>
+        <section id="contenedor-tarjetas">
+            <div class="tarjeta">
+                <header>
+                    <h2>Masaje de pies</h2>
+                </header>
+                <img src="images/pies.png" alt="">
+                <div class="descripcion-tarjeta">
+                    <p>Esta es una decripcion de la opción en cuestion...</p>
+                    <div class="contenedor-inferior">
+                        <h2>$65</h2>
+                        <button>RESERVAR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tarjeta">
+                <header>
+                    <h2>Masaje Relajante</h2>
+                </header>
+                <img src="images/relajante.png" alt="">
+                <div class="descripcion-tarjeta">
+                    <p>Esta es una decripcion de la opción en cuestion...</p>
+                    <div class="contenedor-inferior">
+                        <h2>$60</h2>
+                        <button>RESERVAR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tarjeta">
+                <header>
+                    <h2>Masaje con bambu</h2>
+                </header>
+                <img src="images/bambu.png" alt="">
+                <div class="descripcion-tarjeta">
+                    <p>Esta es una decripcion de la opción en cuestion...</p>
+                    <div class="contenedor-inferior">
+                        <h2>$58</h2>
+                        <button>RESERVAR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planes">
+            <h2>Haste socio de nuestros beneficios</h2>
+            <div class="tarjeta-plan">
+                <div class="contenedor-imagen">
+                    <img src="./images/gold.png" alt="">
+                </div>
+                <h2>GOLD</h2>
+                <button>VER CONDICIONES</button>
+                <ul>
+                    <li>Gimnasio</li>
+                    <li>Piscina</li>
+                    <li>Todos los tratamientos</li>
+                </ul>
+            </div>
+            <div class="tarjeta-plan">
+                <div class="contenedor-imagen">
+                    <img src="./images/premium.png" alt="">
+                </div>
+                <h2>PREMIUM</h2>
+                <button>VER CONDICIONES</button>
+                <ul>
+                    <li>Gimnasio</li>
+                    <li>Todos los tratamientos</li>
+                </ul>
+            </div>
+            <div class="tarjeta-plan">
+                <div class="contenedor-imagen">
+                    <img src="./images/plate.png" alt="">
+                </div>
+                <h2>PLATE</h2>
+                <button>VER CONDICIONES</button>
+                <ul>
+                    <li>Todos los tratamientos</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-de-pagina">
+        <ul>
+            <li><a href="">POLITICAS DE COOKIES</a></li>
+            <li><a href="">AVISO LEGAL</a></li>
+            <li><a href="">PROTECCION DE DATOS</a></li>
+            <li><a href="">MAPA DEL SITIO</a></li>
+        </ul>
+
+        <div class="redes">
+            <p>SÍGUENOS EN</p>
+            <img src="./images/rs_facebook.png" alt="">
+            <img src="./images/rs_twiter.png" alt="">
+            <img src="./images/rs_youtube.png" alt="">
+        </div>
+    </footer>
+</body>
+
+</html>
